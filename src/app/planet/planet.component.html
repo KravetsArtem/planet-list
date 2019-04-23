@@ -1,0 +1,58 @@
+<mat-spinner *ngIf="planet === undefined; else detailsContent"></mat-spinner>
+<ng-template #detailsContent>
+  <section>
+    <mat-card>
+      <mat-card-title class="mat-h1">Details for the clicked planet</mat-card-title>
+      <mat-card-content>
+        <div class="details-row mat-body" >
+          <strong>Planet's name:</strong> <span>{{planet['name']}}</span>
+        </div>
+        <div class="details-row mat-body">
+          <strong>Rotation period:</strong> <span>{{planet['rotation_period']}}</span>
+        </div>
+        <div class="details-row mat-body">
+          <strong>Orbital period:</strong> <span>{{planet['orbital_period']}}</span>
+        </div>
+        <div class="details-row mat-body">
+          <strong>Diameter:</strong> <span>{{planet['diameter']}}</span>
+        </div>
+        <div class="details-row mat-body">
+          <strong>Climate:</strong> <span>{{planet['climate']}}</span>
+        </div>
+        <div class="details-row mat-body">
+          <strong>Gravity:</strong> <span>{{planet['gravity']}}</span>
+        </div>
+        <div class="details-row mat-body">
+          <strong>Terrain:</strong> <span>{{planet['terrain']}}</span>
+        </div>
+        <div class="details-row mat-body">
+          <strong>Surface water:</strong> <span>{{planet['surface_water']}}</span>
+        </div>
+        <div class="details-row mat-body">
+          <strong>Population:</strong> <span>{{planet['population']}}</span>
+        </div>
+        <div class="details-row mat-body">
+          <strong>Films: </strong>
+          <span >{{ planetFilmsTitles.toString() }}</span>
+        </div>
+        <div class="details-row mat-body">
+          <strong>Residents: </strong>
+          <span *ngIf="planetResidentsNames.length != 0; else unknownResidence" >{{ planetResidentsNames.toString() }}</span>
+          <ng-template #unknownResidence><span>No information</span></ng-template>
+        </div>
+        <div class="details-row mat-body">
+          <strong>Date of creation:</strong> <span>{{planet['created'] | date:'dd-MM-yyyy'}}</span>
+        </div>
+        <div class="details-row mat-body">
+          <strong>Date of edit:</strong> <span>{{planet['edited'] | date:'dd-MM-yyyy'}}</span>
+        </div>
+      </mat-card-content>
+
+      <button mat-button class="mat-primary" routerLink="">
+        <mat-icon>arrow_back</mat-icon>
+        Back
+      </button>
+
+    </mat-card>
+  </section>
+</ng-template>

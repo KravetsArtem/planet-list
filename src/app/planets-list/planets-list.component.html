@@ -1,0 +1,28 @@
+<div>
+  <div class="top-bar">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search by name">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <mat-paginator
+      [length]="length"
+      [pageSize]="pageSize"
+      [pageSizeOptions]="pageSizeOptions"
+      (page)="onPageChange($event)"
+    >
+    </mat-paginator>
+  </div>
+  <mat-spinner *ngIf="showPlanets.length == 0"></mat-spinner>
+  <div *ngFor="let planet of showPlanets" class="planet-card">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title class="mat-h3">{{planet['name']}}</mat-card-title>
+      </mat-card-header>
+      <img src="../../assets/img/planet.jpg" class="mat-card-image" alt="Planet">
+      <mat-card-actions>
+        <button mat-button class="mat-primary mat-body" routerLink="{{'planet/' + planet.url.split('/')[5]}}">Details</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+

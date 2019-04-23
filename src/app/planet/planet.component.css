@@ -1,0 +1,22 @@
+mat-card {
+  text-align: center;
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 40%;
+  max-width: 500px;
+  min-width: 300px;
+  margin:auto;
+}
+
+.details-row > span {
+  float: right;
+}
+
+.details-row > strong {
+  float: left;
+}
+
